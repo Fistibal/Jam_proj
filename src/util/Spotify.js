@@ -1,13 +1,13 @@
 const clientId = '5254fd7e167044dfb6aa9684f81475fc';
-const redirectUri = 'http://localhost:3000/callback';
+const redirectUri = 'http://localhost:3000/';
 
-let accessToken = " ";
+let accessToken = "";
 
 const Spotify = {
     getAccessToken() {
       if(accessToken) {
           return accessToken;
-      }
+      }  
       const accessTokenMatch = window.location.href.match(/access_token=([^&]*)/);
       const expiresInMatch = window.location.href.match(/expires_in=([^&]*)/);
       if (accessTokenMatch && expiresInMatch) {
@@ -26,8 +26,8 @@ const Spotify = {
         const accessToken = Spotify.getAccessToken();
         return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
            headers: {
-               Authorization: `Bearer ${accessToken}`
-           }
+               authorization: `Bearer ${accessToken}`
+           } 
         }).then(response => {
             return response.json();
         }).then(jsonReponse => {
@@ -55,7 +55,7 @@ const Spotify = {
         {headers: headers}
         ).then(response => response.json()
             ).then(jsonResponse => {
-                userId = jsonResponse.iD;
+                userId = jsonResponse.iD; 
                 return fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
                     headers: headers,
                     method: 'POST',
@@ -68,7 +68,7 @@ const Spotify = {
                             method: 'POST',
                             body: JSON.stringify({uris: trackUris})
                         });
-                    });
+                    }); 
             });
     }
 }
