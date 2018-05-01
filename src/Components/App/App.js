@@ -61,7 +61,7 @@ class App extends Component {
     return (
       <div>
         <h1>Ja<span className="highlight">mmm</span>ing</h1>
-        <div class="App">
+        <div className="App">
           {/* <!-- Add a SearchBar component --> */}
           <SearchBar onSearch={this.search} />
           <div className="App-playlist">
