@@ -5,6 +5,7 @@ class Track extends React.Component {
     constructor(props) {
         super(props);
 
+            this.renderAction = this.renderAction.bind(this);
             this.addTrack= this.addTrack.bind(this);
             this.removeTrack = this.removeTrack.bind(this);
     }
@@ -24,6 +25,7 @@ class Track extends React.Component {
     }
 
     render() {
+      console.log(this.props.track.album);
         return (
             <div className="Track">
                 <div className="Track-information">
@@ -32,7 +34,7 @@ class Track extends React.Component {
                 </div>
                 <a className="Track-action">{this.renderAction()}</a>
             </div>
-        )
+        );
     }
 }
 
