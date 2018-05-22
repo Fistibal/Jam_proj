@@ -1,6 +1,6 @@
 const clientId = '5254fd7e167044dfb6aa9684f81475fc';
 // const redirectUri = 'http://localhost:3000/'
-const redirectUri ='https://guttural-fuel.surge.sh';
+const redirectUri ='http://extra-large-cook.surge.sh/';
 
 let accessToken = "";
 
