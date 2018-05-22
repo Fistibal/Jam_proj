@@ -1,5 +1,6 @@
 const clientId = '5254fd7e167044dfb6aa9684f81475fc';
-const redirectUri = 'http://localhost:3000/';
+// const redirectUri = 'http://localhost:3000/'
+const redirectUri ='https://guttural-fuel.surge.sh';
 
 let accessToken = "";
 
@@ -7,7 +8,7 @@ const Spotify = {
     getAccessToken() {
       if(accessToken) {
           return accessToken;
-      }  
+      }
       const accessTokenMatch = window.location.href.match(/access_token=([^&]*)/);
       const expiresInMatch = window.location.href.match(/expires_in=([^&]*)/);
       if (accessTokenMatch && expiresInMatch) {
@@ -27,7 +28,7 @@ const Spotify = {
         return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
            headers: {
                authorization: `Bearer ${accessToken}`
-           } 
+           }
         }).then(response => {
             return response.json();
         }).then(jsonReponse => {
@@ -55,7 +56,7 @@ const Spotify = {
         {headers: headers}
         ).then(response => response.json()
             ).then(jsonResponse => {
-                userId = jsonResponse.iD; 
+                userId = jsonResponse.iD;
                 return fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, {
                     headers: headers,
                     method: 'POST',
@@ -68,7 +69,7 @@ const Spotify = {
                             method: 'POST',
                             body: JSON.stringify({uris: trackUris})
                         });
-                    }); 
+                    });
             });
     }
 }
